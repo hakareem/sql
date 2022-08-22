@@ -1,6 +1,6 @@
 # DATABASES
 
-### <ins>There 2 different types of DBMS</ins>
+### <ins>Postgres</ins>
 
 <ins>RELATIONAL</ins>
 
@@ -34,9 +34,13 @@ Rows = holds data entry
 
 # Install PSQL
  <li>
-    <h1> brew install postgresql </h1>
-    <h2> brew services start postgresql </h2>
+     brew install postgresql 
   </li>
+
+ <li>
+    brew services start postgresql 
+  </li>
+
 
 # Run SQL
 
