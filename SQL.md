@@ -14,35 +14,13 @@ Columns = categories
 Rows = holds data entry 
 </li>
 <li>
-Very structured and strict with data types
+  Talk to the database using SQL (Structured, Query, Language)
 </li>
 <li>
-Making it great for managing complex datasets.  
-</li>
-<li>
-You talk to the database using SQL (Structured, Query, Language)
-</li>
-<li>
-You arrange the pattern of rows, columns and tables using a schema. 
+  Arrange the pattern of rows, columns and tables using a schema. 
 </li>
 
 <br>
-<ins>NON-RELATIONA: ‘NoSQL’</ins>
-
-<br>
-<li>
-Doesn’t use SQL to communicate. 
-</li>
-<li>
-More flexible, not as strict with data types
-</li>
-<li>
-Good for getting a database up and running quickly because you don’t have to create a schema ( which is usually strict) before adding data.
-</li>
-<li>
-It’s also good for deploying data across decentralised distribution networks (data stored across different computers that all have coordinates with each other)
-</li>
-
 </br>
 </br>
 </br>
@@ -55,9 +33,10 @@ It’s also good for deploying data across decentralised distribution networks (
 <div>
 
 # Install PSQL
-
-<h1> brew install postgresql </h1>
-<h2> brew services start postgresql </h2>
+ <li>
+    <h1> brew install postgresql </h1>
+    <h2> brew services start postgresql </h2>
+  </li>
 
 # Run SQL
 
@@ -69,7 +48,7 @@ It’s also good for deploying data across decentralised distribution networks (
 
 <ul>
   <li>
-    postgres=#   \l
+    \l
   </li>
 </ul>
 
