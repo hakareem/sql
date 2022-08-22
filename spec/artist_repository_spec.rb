@@ -27,4 +27,45 @@ end
   expect(artist.name).to eq "Rox" # Rox
   expect(artist.genre).to eq "Pop" # Rox
  end
+
+ it "creates a new artist record" do
+  repo = ArtistRepository.new
+  artist = Artist.new
+  artist.name = "Lixies"
+  artist.genre = "Lop"
+
+  repo.create(artist)
+  artists = repo.all
+
+  added_artist = artists.last
+  expect(added_artist.name).to eq("Lixies")  # Lixies
+  expect(added_artist.genre).to eq("Lop") # Lop
+ end
+
+
+ it "deletes an artist from the list" do
+   repo = ArtistRepository.new
+   the_artist = repo.find(1)
+
+   repo.delete(the_artist.id)
+
+   all_artists = repo.all
+   expect(all_artists.length).to eq(1) # 1
+   expect(all_artists.first.id).to eq("2") # 2
+ end
+
+ it "updates an artist information" do
+   repo = ArtistRepository.new
+
+   artist = repo.find(1)
+
+   artist.name = "Jakie Chan"
+   artist.genre = "Idk"
+
+   repo.update(artist)
+   new_artist = repo.find(1)
+
+   expect(new_artist.name).to eq("Jakie Chan")  # "Jakie Chan"
+   expect(new_artist.genre).to eq("Idk") # "Idk"
+ end
 end

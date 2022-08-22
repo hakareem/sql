@@ -67,34 +67,10 @@ Define the attributes of your Model class. You can usually map the table columns
 
 # EXAMPLE
 
-# Table name: artists
-
-# Model class
-
-# (in lib/Artist.rb)
-
 class Artist
-
-# Replace the attributes by your own columns.
-
 attr_accessor :id, :name, :genre
 end
 
-# The keyword attr_accessor is a special Ruby feature
-
-# which allows us to set and get attributes on an object,
-
-# here's an example:
-
-#
-
-# Artist = Artist.new
-
-# Artist.name = 'Jo'
-
-# Artist.name
-
-# You may choose to test-drive this class, but unless it contains any more logic than the example above, it is probably not needed.
 
 ```
 
@@ -110,26 +86,14 @@ end
 
 ```RUBY
 # EXAMPLE
-
-# Table name: artists
-
-# Repository class
-
-# (in lib/Artist_repository.rb)
-
 class ArtistRepository
 
 # Selecting all records
-
-# No arguments
-
-def all # Executes the SQL query: # SELECT id, name, genre FROM artists; # Returns an array of Artist objects.
+def all 
+# Executes the SQL query: # SELECT id, name, genre FROM artists; # Returns an array of Artist objects.
 end
 
 # Gets a single record by its ID
-
-# One argument: the id (number)
-
 def find(id) 
 # Executes the SQL query: # SELECT id, name, genre FROM artists WHERE id = $1;
 # Returns a single Artist object.
@@ -137,17 +101,47 @@ end
 
 # Add more methods below for each operation you'd like to implement.
 
-# def create(Artist)
+def create(artist)
+repo = ArtistRepository.new
+artist = Artist.new
+arist.name = "Lixies"
+artist.genre = "Lop"
 
-# end
+repo.create(artist)
+artists = repo.all
 
-# def update(Artist)
+added_artist = artists.last
+added_artist.name  # Lixies
+added_artist.genre # Lop
 
-# end
+end
 
-# def delete(Artist)
+# delete by artist id
+def delete(artist)
+   repo = ArtistRepository.new
 
-# end
+   the_artist = repo.find(1)
+
+   repo.delete(the_artist.id)
+   all_artists = repo.all
+   all_artists.length # 1
+   all_artists.first.id # 2
+end
+
+def update(artist)
+   repo = ArtistRepository.new
+
+   artist = repo.find(1)
+
+   artist.name = "Jakie Chan"
+   artist.genre = "Idk"
+
+   new_artist = repo.find(1)
+
+   new_artist.name # "Jakie Chan"
+   new_artist.genre # "Idk"
+
+end
 ```
 
 6. Write Test Examples

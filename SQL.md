@@ -98,7 +98,7 @@ Rows = holds data entry
 
 <ul>
   <li>
-    INSERT INTO bookmarks VALUES(1, 'one');
+    INSERT INTO bookmarks(props) VALUES(1, 'one');
   </li>
 </ul>
 
