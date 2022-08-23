@@ -68,4 +68,13 @@ end
    expect(new_artist.name).to eq("Jakie Chan")  # "Jakie Chan"
    expect(new_artist.genre).to eq("Idk") # "Idk"
  end
+
+ it "retrievs all albums for a given artist" do
+  repo = ArtistRepository.new
+  artist = repo.find_with_albums(1)
+  expect(artist.name).to eq("Rox") 
+  expect(artist.genre).to eq("Pop") 
+  expect(artist.albums.length).to eq 2 #  2
+  expect(artist.albums.first.title).to eq "Fly" 
+ end
 end

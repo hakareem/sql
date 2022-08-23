@@ -121,34 +121,30 @@ class AlbumRepository
 
 # Selecting all records
 
-# No arguments
-
 def all # Executes the SQL query: # SELECT id, name, genre FROM Albums; # Returns an array of Album objects.
+
 end
 
+
 # Gets a single record by its ID
-
-# One argument: the id (number)
-
 def find(id) # Executes the SQL query: # SELECT id, name, genre FROM Albums WHERE id = $1;
-
     # Returns a single Album object.
-
 end
 
 # Add more methods below for each operation you'd like to implement.
 
-# def create(Album)
+def create(Album)
 
-# end
+end
 
-# def update(Album)
+def update(Album)
 
-# end
+end
 
-# def delete(Album)
+def delete(Album)
 
-# end
+end
+
 ```
 
 6. Write Test Examples
@@ -162,33 +158,32 @@ end
 ```RUBY
 # EXAMPLES
 
-# 1
+  # returns list of artists
+  repo = AlbumRepository.new
+  albums = repo.all
+  albums.length # 2
+  albums.first.title # "Fly" 
+  albums.first.release_year # 1992
+  albums.first.artist_id # "1" 
 
-# Get all Albums
+  # creates a new album record 
+  repo = AlbumRepository.new
+  album = Album.new
+  album.title = "Lixies"
+  album.release_year = "1995"
+  album.artist_id = "7"
 
-repo = AlbumRepository.new
+  repo.create(album)
+  albums = repo.all
 
-Albums = repo.all
-Albums.length # 2
-Albums.first.id # 1
-Albums.first.name # Pixies
+  added_album = albums.last
+  added_album.title  # Lixies
+  added_album.release_year # 1995
+  added_album.artist_id # 7
 
+ #
+   
 
-# 2
-
-# Get a single Album
-
-repo = AlbumRepository.new
-
-Album = repo.find(1)
-
-Album.id # => 1
-Album.name # => 'David'
-Album.genre # => 'April 2022'
-
-# Add more examples for each method
-
-Encode this example as a test.
 ```
 
 7. Reload the SQL seeds before each test run
@@ -229,6 +224,4 @@ After each test you write, follow the test-driving process of red, green, refact
 
 ```
 
-```
 
-```

@@ -102,45 +102,18 @@ end
 # Add more methods below for each operation you'd like to implement.
 
 def create(artist)
-repo = ArtistRepository.new
-artist = Artist.new
-arist.name = "Lixies"
-artist.genre = "Lop"
-
-repo.create(artist)
-artists = repo.all
-
-added_artist = artists.last
-added_artist.name  # Lixies
-added_artist.genre # Lop
-
 end
 
 # delete by artist id
 def delete(artist)
-   repo = ArtistRepository.new
-
-   the_artist = repo.find(1)
-
-   repo.delete(the_artist.id)
-   all_artists = repo.all
-   all_artists.length # 1
-   all_artists.first.id # 2
 end
 
 def update(artist)
-   repo = ArtistRepository.new
+end
 
-   artist = repo.find(1)
-
-   artist.name = "Jakie Chan"
-   artist.genre = "Idk"
-
-   new_artist = repo.find(1)
-
-   new_artist.name # "Jakie Chan"
-   new_artist.genre # "Idk"
-
+# retrievs all albums for a given artist
+def find_with_albums(id)
+   #join sql query
 end
 ```
 
@@ -166,21 +139,53 @@ artists.length # 2
 artists.first.id # 1
 artists.first.name # Pixies
 
-
-# 2
-
-# Get a single Artist
+# creates a new record
 
 repo = ArtistRepository.new
+artist = Artist.new
+arist.name = "Lixies"
+artist.genre = "Lop"
 
+repo.create(artist)
+artists = repo.all
+
+added_artist = artists.last
+added_artist.name  # Lixies
+added_artist.genre # Lop
+
+
+# deletes an artist record
+repo = ArtistRepository.new
+
+the_artist = repo.find(1)
+
+repo.delete(the_artist.id)
+all_artists = repo.all
+all_artists.length # 1
+all_artists.first.id # 2
+
+# updates an artist
+repo = ArtistRepository.new
 artist = repo.find(1)
-artist.id # => 1
-artist.name # => 'Rox'
-artist.genre # => 'Pop'
 
-# Add more examples for each method
+artist.name = "Jakie Chan"
+artist.genre = "Idk"
 
-Encode this example as a test.
+new_artist = repo.find(1)
+
+new_artist.name # "Jakie Chan"
+new_artist.genre # "Idk"
+
+
+# find with albums
+repo = ArtistRepository.new
+artist = repo.find_with_albums(1)
+artist.name #  Pixies
+artist.genre #  Rock
+artist.albums.length #  2
+artist.albums.first.title # Bossnova
+
+
 ```
 
 7. Reload the SQL seeds before each test run

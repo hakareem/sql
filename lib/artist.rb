@@ -1,4 +1,4 @@
 class Artist
-attr_accessor :id, :name, :genre
+attr_accessor :id, :name, :genre, :albums
 
 end
