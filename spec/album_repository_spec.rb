@@ -20,4 +20,20 @@ end
   expect(albums.first.release_year).to eq "1992" # Rox
   expect(albums.first.artist_id).to eq "1" # Rox
  end
+
+  it "creates a new album record" do
+  repo = AlbumRepository.new
+  album = Album.new
+  album.title = "Lixies"
+  album.release_year = "1995"
+  album.artist_id = "7"
+
+  repo.create(album)
+  albums = repo.all
+
+  added_album = albums.last
+  expect(added_album.title).to eq("Lixies")  # Lixies
+  expect(added_album.release_year).to eq("1995") # 1995
+  expect(added_album.artist_id).to eq("7") # 1995
+ end 
 end

@@ -17,4 +17,12 @@ class AlbumRepository
    end
    return all_albums
  end
+
+  # adds a new album record using sql query
+  def create(album)
+    sql = 'INSERT INTO albums (title, release_year, artist_id) VALUES($1,$2, $3)';
+    DatabaseConnection.exec_params(sql, [album.title, album.release_year, album.artist_id ])
+    return 
+  end
+
 end
